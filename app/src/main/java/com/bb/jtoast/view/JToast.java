@@ -46,6 +46,7 @@ public class JToast implements JBase {
             if (null == toast){
                 toast = Toast.makeText(applicationContext,content,Toast.LENGTH_SHORT);
             }
+			toast.setText(content);
             toast.show();
         }
     }
