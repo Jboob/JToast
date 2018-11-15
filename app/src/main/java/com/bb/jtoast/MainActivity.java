@@ -9,13 +9,10 @@ import android.widget.Button;
 import com.bb.jtoast.constant.Constants;
 import com.bb.jtoast.view.JToast;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.show)
-    Button show;
+
+    private Button show;
 
     private Context ctx;
 
@@ -23,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
         this.ctx = this;
         show.setOnClickListener(new View.OnClickListener() {
             @Override
