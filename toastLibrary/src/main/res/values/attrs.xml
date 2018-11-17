@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RoundLayout">
+        <attr name="topLeftRadius" format="float"></attr>
+        <attr name="topRightRadius" format="float"></attr>
+        <attr name="bottomLeftRadius" format="float"></attr>
+        <attr name="bottomRightRadius" format="float"></attr>
+        <attr name="radius" format="float"></attr>
+    </declare-styleable>
+
+</resources>

@@ -86,7 +86,6 @@ public class JToast {
         if (null == toast) {
             toast = new Toast(mContext);
         }
-
     }
 
     private void showSystemToast(CharSequence content) {

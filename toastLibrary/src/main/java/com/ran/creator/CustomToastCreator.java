@@ -1,10 +1,13 @@
 package com.ran.creator;
 
 import android.graphics.Bitmap;
+import android.support.annotation.ColorInt;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
 import android.view.View;
 
 import com.ran.creator.base.BaseToastCreator;
-import com.ran.interfaces.ICustomToast;
 import com.ran.model.ParametersModel;
 
 /**
@@ -15,45 +18,19 @@ import com.ran.model.ParametersModel;
 public class CustomToastCreator extends BaseToastCreator{
 
 
-    private CharSequence content;
-    private int textColor;
-    private int backgroundColor;
+    private @ColorInt int textColor;
+    private @ColorInt int backgroundColor;
     private View mView;
-    private int resView;
+    private @LayoutRes int resView;
     private ParametersModel resIcon;
     private ParametersModel bitmapIcon;
-    private ParametersModel resTitle;
-
-    public ParametersModel getResTitle() {
-        return resTitle;
-    }
-
-    public void setResTitle(ParametersModel resTitle) {
-        this.resTitle = resTitle;
-    }
-
-    public CharSequence getContent() {
-        return content;
-    }
-
-    public void setContent(CharSequence content) {
-        this.content = content;
-    }
 
     public int getTextColor() {
         return textColor;
     }
 
-    public void setTextColor(int textColor) {
-        this.textColor = textColor;
-    }
-
     public int getBackgroundColor() {
         return backgroundColor;
-    }
-
-    public void setBackgroundColor(int backgroundColor) {
-        this.backgroundColor = backgroundColor;
     }
 
     public View getView() {
@@ -68,28 +45,15 @@ public class CustomToastCreator extends BaseToastCreator{
         return resView;
     }
 
-    public void setResView(int resView) {
-        this.resView = resView;
-    }
-
     public ParametersModel getResIcon() {
         return resIcon;
-    }
-
-    public void setResIcon(ParametersModel resIcon) {
-        this.resIcon = resIcon;
     }
 
     public ParametersModel getBitmapIcon() {
         return bitmapIcon;
     }
 
-    public void setBitmapIcon(ParametersModel bitmapIcon) {
-        this.bitmapIcon = bitmapIcon;
-    }
-
     private CustomToastCreator(CustomToastBuilder builder){
-        this.content = builder.content;
         this.textColor = builder.textColor;
         this.backgroundColor = builder.backgroundColor;
         this.mView = builder.mView;
@@ -102,59 +66,47 @@ public class CustomToastCreator extends BaseToastCreator{
         return new CustomToastBuilder();
     }
 
-    private static class CustomToastBuilder implements ICustomToast {
+    public static class CustomToastBuilder  {
 
-        private CharSequence content;
-        private int textColor;
-        private int backgroundColor;
+        private @ColorInt int textColor;
+        private @ColorInt int backgroundColor;
         private View mView;
-        private int resView;
+        private @LayoutRes int resView;
         private ParametersModel resIcon;
         private ParametersModel bitmapIcon;
-        private ParametersModel resTitle;
 
         public CustomToastBuilder(){
 
         }
 
-        @Override
-        public void setText(CharSequence content) {
-            this.content = content;
-        }
-
-        @Override
-        public void setTextColor(int color) {
+        public CustomToastBuilder setTextColor(@ColorInt int color) {
             this.textColor = color;
+            return this;
         }
 
-        @Override
-        public void setBackgroundColor(int color) {
+        public CustomToastBuilder setBackgroundColor(@ColorInt int color) {
             this.backgroundColor = color;
+            return this;
         }
 
-        @Override
-        public void setCustomView(View view) {
+        public CustomToastBuilder setCustomView(View view) {
             this.mView = view;
+            return this;
         }
 
-        @Override
-        public void setCustomView(int resource) {
+        public CustomToastBuilder setCustomView(@LayoutRes int resource) {
             this.resView = resource;
+            return this;
         }
 
-        @Override
-        public void setToastTitle(int resId, CharSequence content) {
-            this.resTitle = setModel(resId,content);
-        }
-
-        @Override
-        public void setToastIcon(int resId, int iconId) {
+        public CustomToastBuilder setToastIcon(@IdRes int resId, @DrawableRes int iconId) {
             this.resIcon = setModel(resId,iconId);
+            return this;
         }
 
-        @Override
-        public void setToastIcon(int resId, Bitmap bitmap) {
+        public CustomToastBuilder setToastIcon(@IdRes int resId, Bitmap bitmap) {
             this.bitmapIcon = setModel(resId,bitmap);
+            return this;
         }
 
         private ParametersModel setModel(int resId, Object obj){

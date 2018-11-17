@@ -1,75 +1,92 @@
 package com.ran.toast;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.support.annotation.IdRes;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ran.creator.CustomToastCreator;
 import com.ran.model.ParametersModel;
+import com.ran.toast.base.BaseToast;
 
 /**
  * @author Ran
  * @date 2018/11/15.
  */
 
-public class CustomToast {
-
-
-    private CustomToastCreator customToastCreator;
-
-    private Toast toast;
+class CustomToast extends BaseToast {
 
     private Context mContext;
 
-    protected void setContext(Context ctx) {
-        this.mContext = ctx;
+    private CharSequence text;
+
+    /**
+     * Construct an empty Toast object.  You must call {@link #setView} before you
+     * can call {@link #show}.
+     *
+     * @param context The context to use.  Usually your {@link }
+     *                or {@link } object.
+     */
+    public CustomToast(Context context) {
+        super(context);
+        this.mContext = context;
     }
 
-    protected void setCreator(CustomToastCreator creator) {
-        this.customToastCreator = creator;
+    @Override
+    public CharSequence getText() {
+        return text;
     }
 
-    protected void show(Context ctx) {
-        if (isNull(customToastCreator)){
-            throw new NullPointerException("CustomToastCreator is not null.");
-        }
-        initToast(ctx.getApplicationContext());
+    protected void show(CustomToastCreator creator, CharSequence text, @IdRes int resId) {
+        this.text = text;
+        initToast(creator,text,resId);
     }
 
-    private void initToast(Context ctx) {
-        toast = new Toast(ctx);
+    private void initToast(CustomToastCreator creator,CharSequence text, @IdRes int resId) {
+
         View view = null;
-        if (!isNull(customToastCreator.getView())){
-            view = customToastCreator.getView();
-        }else if (customToastCreator.getResView() >= 0){
-            view = LayoutInflater.from(mContext).inflate(customToastCreator.getResView(),null);
-        }else {
+        if (!isNull(creator.getView())) {
+            view = creator.getView();
+        } else if (creator.getResView() >= 0) {
+            LayoutInflater inflate = (LayoutInflater)
+                    mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflate.inflate(creator.getResView(), null);
+        } else {
             throw new NullPointerException("CustomView is not null in the Custom Toast.");
         }
+        TextView textView = view.findViewById(resId);
+        if (!isNull(textView)){
+            if (isNull(text)){
+                text = "null";
+            }
+            textView.setText(text);
+            textView.setTextColor(creator.getTextColor());
+        }
 
-        if (!isNull(customToastCreator.getResTitle())){
-            ParametersModel model = customToastCreator.getResTitle();
-            TextView textView = view.findViewById(model.getResId());
-            if (!isNull(textView)){
-                if (!isNull(model.getObject())){
-                    if (model.getObject() instanceof CharSequence){
-                        textView.setText((CharSequence) model.getObject());
-                    }
-                }
-                textView.setTextColor(customToastCreator.getTextColor());
+        if (!isNull(creator.getResIcon())){
+            ParametersModel model = creator.getResIcon();
+            ImageView imageView = view.findViewById(model.getResId());
+            if (!isNull(imageView)){
+                int iconId = (int) model.getObject();
+                imageView.setImageResource(iconId);
             }
         }
 
-        view.setBackgroundColor(customToastCreator.getBackgroundColor());
-        toast.setView(view);
-        toast.show();
-    }
+        if (!isNull(creator.getBitmapIcon())){
+            ParametersModel model = creator.getResIcon();
+            ImageView imageView = view.findViewById(model.getResId());
+            if (!isNull(imageView)){
+                Bitmap bitmap = (Bitmap) model.getObject();
+                imageView.setImageBitmap(bitmap);
+            }
+        }
 
-    protected void cancel() {
-        if (!isNull(toast))
-            toast.cancel();
+        view.setBackgroundColor(creator.getBackgroundColor());
+        setView(view);
+        show();
     }
 
     private <T> boolean isNull(T t) {

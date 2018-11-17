@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:roundLayout="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,5 +18,13 @@
         android:background="@android:color/holo_green_dark"
         android:text="Show"
         />
+    <com.ran.widget.RoundLinearLayout
+        android:id="@+id/roundLayout"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        roundLayout:radius="10"
+        android:background="@color/colorPrimary"
+        >
 
+    </com.ran.widget.RoundLinearLayout>
 </RelativeLayout>

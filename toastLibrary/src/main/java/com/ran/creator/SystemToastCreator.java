@@ -1,7 +1,6 @@
 package com.ran.creator;
 
 import com.ran.creator.base.BaseToastCreator;
-import com.ran.interfaces.IToast;
 
 /**
  * @author Ran
@@ -10,76 +9,71 @@ import com.ran.interfaces.IToast;
 
 public class SystemToastCreator extends BaseToastCreator {
 
-
-    private CharSequence content;
     private int textColor;
     private int backgroundColor;
-
-    public CharSequence getContent() {
-        return content;
-    }
-
-    public void setContent(CharSequence content) {
-        this.content = content;
-    }
+    private int shadowColor;
+    private float shadowRadius;
 
     public int getTextColor() {
         return textColor;
-    }
-
-    public void setTextColor(int textColor) {
-        this.textColor = textColor;
     }
 
     public int getBackgroundColor() {
         return backgroundColor;
     }
 
-    public void setBackgroundColor(int backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    public int getShadowColor() {
+        return shadowColor;
+    }
+
+    public float getShadowRadius() {
+        return shadowRadius;
     }
 
     private SystemToastCreator(SystemToastBuilder builder){
-        this.content = builder.content;
         this.textColor = builder.textColor;
         this.backgroundColor = builder.backgroundColor;
+        this.shadowColor = builder.shadowColor;
+        this.shadowRadius = builder.shadowRadius;
     }
 
     public static SystemToastBuilder build(){
         return new SystemToastBuilder();
     }
 
-    private static class SystemToastBuilder implements IToast{
+    public static class SystemToastBuilder{
 
-        private CharSequence content;
         private int textColor;
-        private int backgroundColor;
+        private int backgroundColor = -1;
+        private int shadowColor = 0;
+        private float shadowRadius = 2.75f;
 
         public SystemToastBuilder(){
 
         }
 
-        @Override
-        public void setText(CharSequence content) {
-            this.content = content;
-        }
-
-        @Override
-        public void setTextColor(int color) {
+        public SystemToastBuilder setTextColor(int color) {
             this.textColor = color;
+            return this;
         }
 
-        @Override
-        public void setBackgroundColor(int color) {
+        public SystemToastBuilder setBackgroundColor(int color) {
             this.backgroundColor = color;
+            return this;
+        }
+
+        public SystemToastBuilder shadowColor(int shadowColor){
+            this.shadowColor = shadowColor;
+            return this;
+        }
+
+        public SystemToastBuilder shadowRadius(float radius){
+            this.shadowRadius = radius;
+            return this;
         }
 
         public SystemToastCreator creator(){
             return new SystemToastCreator(this);
         }
-
     }
-
-
-
 }
