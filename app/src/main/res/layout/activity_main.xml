@@ -22,9 +22,18 @@
         android:id="@+id/roundLayout"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        roundLayout:radius="10"
+        roundLayout:topLeftRadius="60"
+        roundLayout:topRightRadius="60"
+        roundLayout:bottomLeftRadius="60"
+        roundLayout:bottomRightRadius="60"
         android:background="@color/colorPrimary"
         >
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--&gt;-->
 
+        <!--</LinearLayout>-->
     </com.ran.widget.RoundLinearLayout>
 </RelativeLayout>

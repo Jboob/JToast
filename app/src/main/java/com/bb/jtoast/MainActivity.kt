@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        roundLayout.setRadius(20f)
+//        roundLayout.setBackgroundColor(Color.GRAY)
         show.setOnClickListener(View.OnClickListener {
             //            com.ran.creator.base.JToast.getInstance(this).show("show 一个！")
 //            com.ran.creator.base.JToast.getInstance(this).show("show 两个！")
