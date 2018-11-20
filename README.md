@@ -7,9 +7,8 @@
 - Custom Toast, support custom background color, font color, Toast icon.
 
 # Show results.
- <div align="center">![Screenshot from 2018-04-12 10:51:38.png](https://upload-images.jianshu.io/upload_images/10028058-8f88a15298d8ef12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
- <div align="center"> ![JToast](https://github.com/Jboob/JToast/blob/master/images/default_toast.gif  "default_toast") </div>
+ <div align="center"></div>
+![JToast](https://github.com/Jboob/JToast/blob/master/images/default_toast.gif  "default_toast")
 
 ![JToast](https://github.com/Jboob/JToast/blob/master/images/system_toast.gif "system_toast")
 
