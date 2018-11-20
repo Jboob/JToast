@@ -2,7 +2,7 @@
 
 ---
 # Default Android Toast,Multiple clicks, repeat display.
-![blockchain](https://github.com/Jboob/JToast/blob/master/images/custom_system_toast.gif, "")
+![blockchain](https://github.com/Jboob/JToast/blob/master/images/custom_system_toast.gif)
 
 
 
