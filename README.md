@@ -65,4 +65,6 @@ allprojects {
 
  </div>
 
+# [吹垮垮中文文档](https://www.jianshu.com/p/9fbc9804bdc1)
+
 My lame English notes from Google Translate, please understand. [ *Please your issues* ](https://github.com/Jboob/JToast/issues)
