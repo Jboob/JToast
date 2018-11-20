@@ -8,32 +8,66 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.bb.jtoast.MainActivity">
-
-    <Button
-        android:id="@+id/show"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@android:color/holo_green_dark"
-        android:text="Show"
-        />
-    <com.ran.widget.RoundLinearLayout
-        android:id="@+id/roundLayout"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        roundLayout:topLeftRadius="60"
-        roundLayout:topRightRadius="60"
-        roundLayout:bottomLeftRadius="60"
-        roundLayout:bottomRightRadius="60"
-        android:background="@color/colorPrimary"
+    tools:context="com.bb.jtoast.MainActivity"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         >
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--&gt;-->
+        <Button
+            android:id="@+id/default_toast"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@android:color/holo_green_dark"
+            android:text="default_toast"
+            />
 
-        <!--</LinearLayout>-->
-    </com.ran.widget.RoundLinearLayout>
+        <Button
+            android:id="@+id/system_toast"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_green_dark"
+            android:text="system_toast"
+            />
+
+        <Button
+            android:id="@+id/custom_system_toast"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_green_dark"
+            android:text="custom_system_toast"
+            />
+
+        <Button
+            android:id="@+id/custom_toast"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_green_dark"
+            android:text="custom_toast"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Toast icon source: http://www.iconfont.cn/collections/detail?cid=11968"
+        />
 </RelativeLayout>

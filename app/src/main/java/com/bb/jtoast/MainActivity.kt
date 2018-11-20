@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.Toast
 import com.ran.creator.CustomToastCreator
 import com.ran.creator.SystemToastCreator
 import com.ran.toast.JToast
@@ -15,26 +16,41 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        roundLayout.setBackgroundColor(Color.GRAY)
-        show.setOnClickListener(View.OnClickListener {
-            //            com.ran.creator.base.JToast.getInstance(this).show("show 一个！")
-//            com.ran.creator.base.JToast.getInstance(this).show("show 两个！")
 
-//            JToast.getInstance(this).show("show 一个！")
-//            JToast.getInstance(this).show("show 两个！")
-//            JToast.getInstance(this).show("show 三个！")
+        default_toast.setOnClickListener(View.OnClickListener {
+            Toast.makeText(this,"show 一个！",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"show 两个！",Toast.LENGTH_SHORT).show()
+        })
 
+        system_toast.setOnClickListener(View.OnClickListener {
+            JToast.getInstance(this).show("show 一个！")
+            JToast.getInstance(this).show("show 两个！")
+            JToast.getInstance(this).show("show 三个！")
+
+        })
+
+        custom_system_toast.setOnClickListener(View.OnClickListener {
             var creator = SystemToastCreator.build()
-                    .setBackgroundColor(Color.TRANSPARENT)
                     .shadowColor(Color.parseColor("#2F4F4F"))
                     .shadowRadius(15f)
-                    .setTextColor(Color.parseColor("#2F4F4F"))
+                    .setTextColor(Color.parseColor("#ffffff"))
                     .creator()
+
+            JToast.build()
+                    .systemToastBuilder()
+                    .setToastCreator(creator)
+                    .setShowTime(2000)
+                    .setText("show creator!")
+                    .show(this)
+        })
+
+        custom_toast.setOnClickListener(View.OnClickListener {
 
             var customCreator = CustomToastCreator.build()
                     .setCustomView(R.layout.layout_toast)
 //                    .setBackgroundColor(Color.BLUE)
-                    .setTextColor(Color.GREEN)
+                    .setTextColor(Color.WHITE)
+                    .setBackgroundRound(true)
                     .creator()
 
             JToast.build()
@@ -43,22 +59,7 @@ class MainActivity : AppCompatActivity() {
                     .setShowTime(2000)
                     .setText("show customCreator!",R.id.message)
                     .show(this)
-
-//            JToast.build()
-//                    .systemToastBuilder()
-//                    .setToastCreator(creator)
-//                    .setShowTime(2000)
-//                    .setText("show creator!")
-//                    .show(this)
-//
-//            JToast.build()
-//                    .systemToastBuilder()
-//                    .setToastCreator(creator)
-//                    .setShowTime(2000)
-//                    .setText("show creator 1!")
-//                    .show(this)
-//            Toast.makeText(this,"show 一个！",Toast.LENGTH_SHORT).show()
-//            Toast.makeText(this,"show 两个！",Toast.LENGTH_SHORT).show()
         })
+
     }
 }

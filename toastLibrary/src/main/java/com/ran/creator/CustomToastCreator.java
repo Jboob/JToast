@@ -24,6 +24,11 @@ public class CustomToastCreator extends BaseToastCreator{
     private @LayoutRes int resView;
     private ParametersModel resIcon;
     private ParametersModel bitmapIcon;
+    private boolean isBackgroundRound;
+
+    public boolean isBackgroundRound() {
+        return isBackgroundRound;
+    }
 
     public int getTextColor() {
         return textColor;
@@ -60,6 +65,7 @@ public class CustomToastCreator extends BaseToastCreator{
         this.resView = builder.resView;
         this.resIcon = builder.resIcon;
         this.bitmapIcon = builder.bitmapIcon;
+        this.isBackgroundRound = builder.isBackgroundRound;
     }
 
     public static CustomToastBuilder build(){
@@ -74,6 +80,7 @@ public class CustomToastCreator extends BaseToastCreator{
         private @LayoutRes int resView;
         private ParametersModel resIcon;
         private ParametersModel bitmapIcon;
+        private boolean isBackgroundRound;
 
         public CustomToastBuilder(){
 
@@ -106,6 +113,11 @@ public class CustomToastCreator extends BaseToastCreator{
 
         public CustomToastBuilder setToastIcon(@IdRes int resId, Bitmap bitmap) {
             this.bitmapIcon = setModel(resId,bitmap);
+            return this;
+        }
+
+        public CustomToastBuilder setBackgroundRound(boolean isRound) {
+            this.isBackgroundRound = isRound;
             return this;
         }
 
