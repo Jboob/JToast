@@ -15,7 +15,7 @@
 ![JToast](https://github.com/Jboob/JToast/blob/master/images/custom_system_toast.gif "custom_system_toast")
 
 ![JToast](https://github.com/Jboob/JToast/blob/master/images/custom_toast.gif "custom_toast")
-
+ </div>
 
 # My lame English notes from Google Translate, please understand.
 
