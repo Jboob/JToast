@@ -10,7 +10,9 @@
  <div align="center">
 
 !["JToast"](https://github.com/Jboob/JToast/blob/master/images/default_toast.gif  "default_toast")
+
  default_toast
+
  </div>
 
 ![JToast](https://github.com/Jboob/JToast/blob/master/images/system_toast.gif "system_toast")
