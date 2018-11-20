@@ -8,7 +8,7 @@
 
 # Show results.
 
-![JToast](<img src="https://github.com/Jboob/JToast/blob/master/images/default_toast.gif" align='center'></img> "default_toast")
+![JToast](<img src='https://github.com/Jboob/JToast/blob/master/images/default_toast.gif' align='center'></img> "default_toast")
 
 ![JToast](https://github.com/Jboob/JToast/blob/master/images/system_toast.gif "system_toast")
 
