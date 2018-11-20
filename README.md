@@ -11,7 +11,7 @@
 
 !["JToast"](https://github.com/Jboob/JToast/blob/master/images/default_toast.gif  "default_toast")
 
- default_toast
+ <u>default_toast</u>
 
  </div>
 
