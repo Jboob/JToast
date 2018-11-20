@@ -7,6 +7,9 @@
 - Custom Toast, multiple clicks, show once.
 - Custom Toast, support custom background color, font color, Toast icon.
 
+# Using JToast in your application
+```
+
 # Show results.
  <div align="center">
 
@@ -22,7 +25,7 @@
 
 ![JToast](https://github.com/Jboob/JToast/blob/master/images/system_toast.gif "system_toast")
 
-# default_toast
+# system_toast
 
 ---
 
@@ -32,7 +35,7 @@
 
 ![JToast](https://github.com/Jboob/JToast/blob/master/images/custom_system_toast.gif "custom_system_toast")
 
-# default_toast
+# custom_system_toast
 
 ---
 
@@ -42,7 +45,7 @@
 
 ![JToast](https://github.com/Jboob/JToast/blob/master/images/custom_toast.gif "custom_toast")
 
-# default_toast
+# custom_toast
 
 ---
 
