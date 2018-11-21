@@ -25,6 +25,7 @@ allprojects {
  	}
  ```
  **Step 3.**
+
  a. Simple to use
   ```
     JToast.getInstance(this).show("show one")
