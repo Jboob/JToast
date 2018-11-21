@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/Jboob/JToast.svg)](https://jitpack.io/#Jboob/JToast)
+---
 # This is a custom Toast library, welcome to use or mention issues.
 
 ---
