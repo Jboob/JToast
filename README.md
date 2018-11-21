@@ -8,7 +8,7 @@
 - Custom Toast, support custom background color, font color, Toast icon.
 
 # Using JToast in your application
- *Step 1* Add the JitPack repository to your build file
+ **Step 1.** Add the JitPack repository to your build file
  Add it in your root build.gradle at the end of repositories:
  ```
 allprojects {
@@ -18,11 +18,45 @@ allprojects {
 		}
 	}
  ```
- *Step 2* Add the dependency
+ **Step 2.** Add the dependency
  ```
  dependencies {
  	        implementation 'com.github.Jboob:JToast:1.0.2'
  	}
+ ```
+ **Step 3.**
+ a. Simple to use
+  ```
+    JToast.getInstance(this).show("show one")
+  ```
+ b. Using constructor
+ ```
+ var creator = SystemToastCreator.build()
+                    .shadowColor(Color.parseColor("#2F4F4F"))
+                    .shadowRadius(15f)
+                    .setTextColor(Color.parseColor("#ffffff"))
+                    .creator()
+
+            JToast.build()
+                    .systemToastBuilder()
+                    .setToastCreator(creator)
+                    .setShowTime(2000)
+                    .setText("show creator!")
+                    .show(this)
+ ```
+ ```
+ var customCreator = CustomToastCreator.build()
+                    .setCustomView(R.layout.layout_toast)
+                    .setTextColor(Color.WHITE)
+                    .setBackgroundRound(true)
+                    .creator()
+
+            JToast.build()
+                    .customToastBuilder()
+                    .setToastCreator(customCreator)
+                    .setShowTime(2000)
+                    .setText("show customCreator!",R.id.message)
+                    .show(this)
  ```
 # Show results.
  <div align="center">
