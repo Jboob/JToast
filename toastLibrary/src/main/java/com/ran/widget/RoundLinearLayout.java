@@ -24,13 +24,16 @@ public class RoundLinearLayout extends LinearLayout {
 
     private float cornesRadius;
 
+    //X_radius, Y_radius,top-left, top-right, bottom-right, bottom-left
     private float[] radii;
 
     private GradientDrawable gradientDrawable;
 
-    private @ColorInt int backgroundColor;
+    private @ColorInt
+    int backgroundColor;
 
-    private @DrawableRes int backgroundResource;
+    private @DrawableRes
+    int backgroundResource;
 
     public RoundLinearLayout(Context context) {
         super(context);
@@ -51,14 +54,14 @@ public class RoundLinearLayout extends LinearLayout {
         gradientDrawable = new GradientDrawable();
         TypedArray arr = context.obtainStyledAttributes(attrs, R.styleable.RoundLayout);
         this.cornesRadius = arr.getFloat(R.styleable.RoundLayout_radius, 0);
-        this.backgroundColor = arr.getColor(R.styleable.RoundLayout_backgroundColor,0);
+        this.backgroundColor = arr.getColor(R.styleable.RoundLayout_backgroundColor, 0);
         if (cornesRadius == 0) {
             float topLeftRadius = arr.getFloat(R.styleable.RoundLayout_topLeftRadius, 0);
             float topRightRadius = arr.getFloat(R.styleable.RoundLayout_topRightRadius, 0);
             float bottomLeftRadius = arr.getFloat(R.styleable.RoundLayout_bottomLeftRadius, 0);
             float bottomRightRadius = arr.getFloat(R.styleable.RoundLayout_bottomRightRadius, 0);
-            radii = new float[]{topLeftRadius, topLeftRadius, topRightRadius, topRightRadius,
-                    bottomLeftRadius, bottomLeftRadius, bottomRightRadius, bottomRightRadius};
+            radii = new float[]{topLeftRadius, topLeftRadius, topRightRadius, topRightRadius, bottomRightRadius, bottomRightRadius,
+                    bottomLeftRadius, bottomLeftRadius};
         }
         drawRoundDrawable();
         arr.recycle();
@@ -72,7 +75,7 @@ public class RoundLinearLayout extends LinearLayout {
         }
     }
 
-    public void setTopLeftRadius(float topLeftRadius){
+    public void setTopLeftRadius(float topLeftRadius) {
         if (null != gradientDrawable) {
             radii = new float[]{topLeftRadius, topLeftRadius, 0, 0,
                     0, 0, 0, 0};
@@ -81,7 +84,7 @@ public class RoundLinearLayout extends LinearLayout {
         }
     }
 
-    public void setTopRightRadius(float topRightRadius){
+    public void setTopRightRadius(float topRightRadius) {
         if (null != gradientDrawable) {
             radii = new float[]{0, 0, topRightRadius, topRightRadius,
                     0, 0, 0, 0};
@@ -90,16 +93,16 @@ public class RoundLinearLayout extends LinearLayout {
         }
     }
 
-    public void setBottomLeftRadius(float bottomLeftRadius){
+    public void setBottomLeftRadius(float bottomLeftRadius) {
         if (null != gradientDrawable) {
             radii = new float[]{0, 0, 0, 0,
-                    0, 0, bottomLeftRadius, bottomLeftRadius};
+                    bottomLeftRadius, bottomLeftRadius};
             gradientDrawable.setCornerRadii(radii);
             setBackgroundDrawable();
         }
     }
 
-    public void setBottomRightRadius(float bottomRightRadius){
+    public void setBottomRightRadius(float bottomRightRadius) {
 
         if (null != gradientDrawable) {
             radii = new float[]{0, 0, 0, 0,
@@ -111,7 +114,7 @@ public class RoundLinearLayout extends LinearLayout {
 
     public void setBackgroundColor(@ColorInt int color) {
         this.backgroundColor = color;
-        if (null != gradientDrawable){
+        if (null != gradientDrawable) {
             gradientDrawable.setColor(color);
             setBackgroundDrawable();
         }
@@ -119,10 +122,11 @@ public class RoundLinearLayout extends LinearLayout {
 
     /**
      * Set GradientType in the GradientDrawable
+     *
      * @param gradient GradientDrawable {RECTANGLE,OVAL,LINE,RING}
      */
-    public void setGradientType(int gradient){
-        if (null != gradientDrawable){
+    public void setGradientType(int gradient) {
+        if (null != gradientDrawable) {
             gradientDrawable.setGradientType(gradient);
             setBackgroundDrawable();
         }
@@ -145,10 +149,10 @@ public class RoundLinearLayout extends LinearLayout {
         setBackgroundDrawable();
     }
 
-    private void setBackgroundDrawable(){
+    private void setBackgroundDrawable() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-        setBackground(gradientDrawable);
+            setBackground(gradientDrawable);
+        }
     }
-}
 
 }

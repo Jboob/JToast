@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:roundLayout="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,10 +11,22 @@
     tools:context="com.bb.jtoast.MainActivity"
     android:orientation="vertical"
     >
+
+    <com.ran.widget.RoundLinearLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        app:backgroundColor="@color/colorPrimary"
+        app:topLeftRadius="30"
+
+        app:bottomRightRadius="30"
+        ></com.ran.widget.RoundLinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="gone"
         >
         <Button
             android:id="@+id/default_toast"
@@ -59,6 +71,8 @@
             android:background="@android:color/holo_green_dark"
             android:text="custom_toast"
             />
+
+
 
     </LinearLayout>
 
