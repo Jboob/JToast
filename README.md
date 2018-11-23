@@ -23,7 +23,7 @@ allprojects {
  **Step 2.** Add the dependency
  ```
  dependencies {
- 	        implementation 'com.github.Jboob:JToast:1.0.2'
+ 	        implementation 'com.github.Jboob:JToast:1.0.3'
  	}
  ```
  **Step 3.**
