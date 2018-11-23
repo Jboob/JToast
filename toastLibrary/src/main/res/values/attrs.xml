@@ -8,7 +8,7 @@
         <attr name="bottomLeftRadius" format="float"></attr>
         <attr name="bottomRightRadius" format="float"></attr>
 
-        <attr name="backgroundColor" format="integer"></attr>
+        <attr name="backgroundColor" format="color"></attr>
     </declare-styleable>
 
 </resources>

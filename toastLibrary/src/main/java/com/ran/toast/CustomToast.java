@@ -3,7 +3,6 @@ package com.ran.toast;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.annotation.IdRes;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -89,7 +88,6 @@ class CustomToast extends BaseToast {
         if (creator.isBackgroundRound()){
             RoundLinearLayout roundLinearLayout = new RoundLinearLayout(mContext);
             roundLinearLayout.setBackgroundColor(creator.getBackgroundColor());
-            Log.d("JToast", "initToast: ");
             roundLinearLayout.setRadius(100f);
             roundLinearLayout.addView(view);
             setView(roundLinearLayout);

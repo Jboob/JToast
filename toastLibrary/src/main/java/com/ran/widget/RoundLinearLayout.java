@@ -9,7 +9,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.LinearLayout;
 
 import com.ran.toast.R;
@@ -52,6 +51,7 @@ public class RoundLinearLayout extends LinearLayout {
         gradientDrawable = new GradientDrawable();
         TypedArray arr = context.obtainStyledAttributes(attrs, R.styleable.RoundLayout);
         this.cornesRadius = arr.getFloat(R.styleable.RoundLayout_radius, 0);
+        this.backgroundColor = arr.getColor(R.styleable.RoundLayout_backgroundColor,0);
         if (cornesRadius == 0) {
             float topLeftRadius = arr.getFloat(R.styleable.RoundLayout_topLeftRadius, 0);
             float topRightRadius = arr.getFloat(R.styleable.RoundLayout_topRightRadius, 0);
@@ -130,7 +130,7 @@ public class RoundLinearLayout extends LinearLayout {
 
     @SuppressLint("WrongConstant")
     private void drawRoundDrawable() {
-        Log.d(TAG, "drawRoundDrawable: "+cornesRadius);
+
         if (null == gradientDrawable) {
             return;
         }
@@ -141,13 +141,14 @@ public class RoundLinearLayout extends LinearLayout {
             gradientDrawable.setCornerRadii(radii);
             gradientDrawable.setGradientType(GradientDrawable.RECTANGLE);
         }
+        gradientDrawable.setColor(backgroundColor);
         setBackgroundDrawable();
     }
 
     private void setBackgroundDrawable(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            setBackground(gradientDrawable);
-        }
+        setBackground(gradientDrawable);
     }
+}
 
 }
