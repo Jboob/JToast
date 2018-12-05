@@ -65,6 +65,7 @@ class SystemToast extends BaseToast {
         if (creator.getBackgroundColor() != -1){
             view.setBackgroundColor(creator.getBackgroundColor());
         }
+
         textView.setShadowLayer(creator.getShadowRadius(),0,0, creator.getShadowColor());
         toast.show();
     }

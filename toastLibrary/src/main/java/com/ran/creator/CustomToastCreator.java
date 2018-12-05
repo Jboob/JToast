@@ -7,7 +7,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.view.View;
 
-import com.ran.creator.base.BaseToastCreator;
+
 import com.ran.model.ParametersModel;
 
 /**
@@ -15,7 +15,7 @@ import com.ran.model.ParametersModel;
  * @date 2018/11/15.
  */
 
-public class CustomToastCreator extends BaseToastCreator{
+public class CustomToastCreator {
 
 
     private @ColorInt int textColor;

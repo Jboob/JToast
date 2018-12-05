@@ -24,6 +24,8 @@ class CustomToast extends BaseToast {
 
     private CharSequence text;
 
+    private int gravity;
+
     /**
      * Construct an empty Toast object.  You must call {@link #setView} before you
      * can call {@link #show}.
@@ -41,8 +43,9 @@ class CustomToast extends BaseToast {
         return text;
     }
 
-    protected void show(CustomToastCreator creator, CharSequence text, @IdRes int resId) {
+    protected void show(CustomToastCreator creator, CharSequence text, @IdRes int resId,int gravity) {
         this.text = text;
+        this.gravity = gravity;
         initToast(creator,text,resId);
     }
 
@@ -95,6 +98,10 @@ class CustomToast extends BaseToast {
             view.setBackgroundColor(creator.getBackgroundColor());
             setView(view);
         }
+        if (gravity != -1){
+            setGravity(gravity,0,0);
+        }
+
         show();
     }
 

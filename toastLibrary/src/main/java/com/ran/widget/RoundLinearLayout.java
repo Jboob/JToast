@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -32,8 +31,8 @@ public class RoundLinearLayout extends LinearLayout {
     private @ColorInt
     int backgroundColor;
 
-    private @DrawableRes
-    int backgroundResource;
+    private
+    int background;
 
     public RoundLinearLayout(Context context) {
         super(context);
@@ -55,6 +54,7 @@ public class RoundLinearLayout extends LinearLayout {
         TypedArray arr = context.obtainStyledAttributes(attrs, R.styleable.RoundLayout);
         this.cornesRadius = arr.getFloat(R.styleable.RoundLayout_radius, 0);
         this.backgroundColor = arr.getColor(R.styleable.RoundLayout_backgroundColor, 0);
+
         if (cornesRadius == 0) {
             float topLeftRadius = arr.getFloat(R.styleable.RoundLayout_topLeftRadius, 0);
             float topRightRadius = arr.getFloat(R.styleable.RoundLayout_topRightRadius, 0);
@@ -132,6 +132,7 @@ public class RoundLinearLayout extends LinearLayout {
         }
     }
 
+
     @SuppressLint("WrongConstant")
     private void drawRoundDrawable() {
 
@@ -145,7 +146,10 @@ public class RoundLinearLayout extends LinearLayout {
             gradientDrawable.setCornerRadii(radii);
             gradientDrawable.setGradientType(GradientDrawable.RECTANGLE);
         }
-        gradientDrawable.setColor(backgroundColor);
+
+            gradientDrawable.setColor(backgroundColor);
+
+
         setBackgroundDrawable();
     }
 

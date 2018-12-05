@@ -1,13 +1,11 @@
 package com.ran.creator;
 
-import com.ran.creator.base.BaseToastCreator;
-
 /**
  * @author Ran
  * @date 2018/11/15.
  */
 
-public class SystemToastCreator extends BaseToastCreator {
+public class SystemToastCreator  {
 
     private int textColor;
     private int backgroundColor;

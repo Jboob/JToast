@@ -34,7 +34,7 @@ public class JToast {
     private Handler mHander;
 
     private ToastRunnable runnable;
-    private CharSequence text;
+    private CharSequence text = "text";
     private SystemToast systemToast;
     private CustomToast customToast;
 
@@ -84,7 +84,7 @@ public class JToast {
             }else {
                 mHander.postDelayed(runnable, DEFAULT_SHOW_TIME);
             }
-            customToast.show(builder.customToastCreator,builder.text,builder.textResId);
+            customToast.show(builder.customToastCreator,builder.text,builder.textResId,builder.gravity);
         }
     }
 
@@ -136,8 +136,9 @@ public class JToast {
 
         private CustomToastCreator customToastCreator;
         private long showTime;
-        private CharSequence text;
+        private CharSequence text = "text";
         private int textResId;
+        private int gravity = -1;
 
         public CustomToastBuilder setToastCreator(CustomToastCreator creator) {
             if (null == creator) {
@@ -150,6 +151,15 @@ public class JToast {
         public CustomToastBuilder setText(CharSequence text, @IdRes int resId) {
             this.text = text;
             this.textResId = resId;
+            return this;
+        }
+
+        /**
+         * Set the location at which the notification should appear on the screen.
+         * @see android.view.Gravity
+         */
+        public CustomToastBuilder setGravity(int gravity){
+            this.gravity = gravity;
             return this;
         }
 

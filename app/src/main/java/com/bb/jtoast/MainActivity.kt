@@ -3,6 +3,7 @@ package com.bb.jtoast
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
 import android.view.View
 import android.widget.Toast
 import com.ran.creator.CustomToastCreator
@@ -57,7 +58,8 @@ class MainActivity : AppCompatActivity() {
                     .customToastBuilder()
                     .setToastCreator(customCreator)
                     .setShowTime(2000)
-                    .setText("show customCreator!",R.id.message)
+                    .setGravity(Gravity.CENTER)
+//                    .setText("show customCreator!",R.id.message)
                     .show(this)
         })
 
